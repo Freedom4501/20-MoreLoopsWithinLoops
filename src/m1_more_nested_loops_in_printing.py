@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of PRINTING on the CONSOLE.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Mashengjun Li.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -73,7 +73,15 @@ def triangle_right_justified(r):
     #   in this or the other problems in this module, as doing so would
     #   defeat the goal of providing practice at loops within loops.
     # ------------------------------------------------------------------
-
+    for j in range(r):
+        w = 1
+        for k in range(r):
+            if k < r -j - 1:
+                print(' ', end='')
+            else:
+                print(w, end='')
+                w = w + 1
+        print()
 
 def run_test_triangle_upside_down():
     """ Tests the    triangle_upside_down    function. """
