@@ -3,8 +3,8 @@ This project demonstrates NESTED LOOPS (i.e., loops within loops)
 in the context of SEQUENCES OF SUB-SEQUENCES.
 
 Authors: David Mutchler, Valerie Galluzzi, Mark Hays, Amanda Stouder,
-         their colleagues and PUT_YOUR_NAME_HERE.
-"""  # TODO: 1. PUT YOUR NAME IN THE ABOVE LINE.
+         their colleagues and Mashengjun Li.
+"""  # Done: 1. PUT YOUR NAME IN THE ABOVE LINE.
 
 
 def main():
@@ -75,7 +75,15 @@ def largest_number(seq_seq):
     # TODO: 3. Implement and test this function.
     #   Note that you should write its TEST function first (above).
     # ------------------------------------------------------------------
-
+    greatest_num = None
+    for j in range(len(seq_seq)):
+        subsequence = seq_seq[j]
+        for k in range(len(subsequence)):
+            if greatest_num == None:
+                greatest_num = subsequence[k]
+            if subsequence[k] > greatest_num:
+                greatest_num = subsequence[k]
+    return greatest_num
 
 def run_test_largest_negative_number():
     """ Tests the    largest_negative_number    function. """
@@ -91,6 +99,11 @@ def run_test_largest_negative_number():
     print('Testing the   LARGEST_NEGATIVE_NUMBER   function:')
     print('-------------------------------------------------')
 
+    expected = -2.6
+    answer = largest_negative_number([(30, -5, 8, -20),
+                                      (100, -2.6, 88, -40, -5),
+                                      [400, 500]])
+    print('Expected and actual are:', expected, answer)
 
 def largest_negative_number(seq_seq):
     """
@@ -122,7 +135,14 @@ def largest_negative_number(seq_seq):
     #   being constructed (so the SPACE allowed is limited to the
     #   give sequence of sequences plus any non-list variables you want).
     # ------------------------------------------------------------------
-
+    greatest_neg_num = None
+    for j in range(len(seq_seq)):
+        subsequences = seq_seq[j]
+        for k in range(len(subsequences)):
+            if subsequences[k] < 0:
+                if len(subsequences[k]) < greatest_neg_num:
+                    greatest_neg_num = subsequences[k]
+    return greatest_neg_num
 
 def run_test_first_is_elsewhere_too():
     """ Tests the    first_is_elsewhere_too    function. """
@@ -370,7 +390,14 @@ def first_is_elsewhere_too(seq_seq):
     #   in this problem, as doing so would defeat the goal of providing
     #   practice at loops within loops (within loops within ...)
     # ------------------------------------------------------------------
-
+    for j in range(1, len(seq_seq)):
+        subsequence_first = seq_seq[0]
+        subsequence = seq_seq[j]
+        for k in range(len(subsequence)):
+            for l in range(len(subsequence_first)):
+                if subsequence[k] == subsequence_first[l]:
+                    return True
+    return False
 
 # ----------------------------------------------------------------------
 # Calls  main  to start the ball rolling.
