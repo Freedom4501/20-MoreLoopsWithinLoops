@@ -135,13 +135,15 @@ def largest_negative_number(seq_seq):
     #   being constructed (so the SPACE allowed is limited to the
     #   give sequence of sequences plus any non-list variables you want).
     # ------------------------------------------------------------------
-    greatest_neg_num = None
+    greatest_neg_num = 0
     for j in range(len(seq_seq)):
         subsequences = seq_seq[j]
         for k in range(len(subsequences)):
             if subsequences[k] < 0:
-                if len(subsequences[k]) < greatest_neg_num:
+                if -1 * subsequences[k] > -1 * greatest_neg_num:
                     greatest_neg_num = subsequences[k]
+    if greatest_neg_num == 0:
+        return None
     return greatest_neg_num
 
 def run_test_first_is_elsewhere_too():
