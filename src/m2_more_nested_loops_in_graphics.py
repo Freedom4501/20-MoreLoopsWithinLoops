@@ -73,8 +73,8 @@ def draw_upside_down_wall(rectangle, n, window):
             x1 = x1 + change_x_by
         y = y + change_y_by
         y1 = y1 + change_y_by
-        x = ori_x - ((k + 1)*0.5) * change_x_by
-        x1 = ori_x1 - ((k + 1)*0.5) * change_x_by
+        x = ori_x - ((k + 1) * 0.5) * change_x_by
+        x1 = ori_x1 - ((k + 1) * 0.5) * change_x_by
 
 
 # ----------------------------------------------------------------------
